@@ -1,5 +1,7 @@
 
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
 class PreferenciasUsuario {
   static final PreferenciasUsuario _instancia =
@@ -94,6 +96,34 @@ class PreferenciasUsuario {
   set access_token(String value) {
     _prefs.setString('access_token', value);
   }
+  String get number_document {
+    return _prefs.getString('number_document') ?? '';
+  }
+
+  set number_document(String value) {
+    _prefs.setString('number_document', value);
+  }
+  String get phone {
+    return _prefs.getString('phone') ?? '';
+  }
+
+  set phone(String value) {
+    _prefs.setString('phone', value);
+  }
+  String get date_birth {
+    return _prefs.getString('date_birth') ?? '';
+  }
+
+  set date_birth(String value) {
+    _prefs.setString('date_birth', value);
+  }
+  String get commentary {
+    return _prefs.getString('commentary') ?? '';
+  }
+
+  set commentary(String value) {
+    _prefs.setString('commentary', value);
+  }
   restaurarValoresPref(){
     expires_in=0;
     userName='';
@@ -103,5 +133,34 @@ class PreferenciasUsuario {
     userId=0;
     residentId=0;
     access_token='';
+    commentary='';
+    date_birth='';
+    phone='';
+    number_document='';
+
+  }
+  Future updatePerfil() async {
+    try {
+      var pref = PreferenciasUsuario();
+      EasyLoading.show(status: 'Actualizando informacion');
+      var url = Uri.parse(
+          'https://app.domusbm.com/api/resident/update_profile');
+      var response = await http.post(
+        url,
+        headers: {
+          'Authorization': 'Bearer ${pref.access_token}',
+        },
+        body: {
+          'number_document': pref.number_document,
+          'phone': pref.phone,
+          'date_birth': pref.date_birth,
+          'commentary': pref.commentary,
+        }
+      );
+      EasyLoading.dismiss();
+    } catch (e) {
+      EasyLoading.showError(
+          'Ocurrior un error a la hora de actualizar su perfil.\n Cierre y vuelva a abrir la app.');
+    }
   }
 }

@@ -75,7 +75,7 @@ class _LandingPageState extends State<LandingPage> {
 
   void iniciarFuncion() async {
     DateTime now = DateTime.now();
-    if (now.year == 2022 && now.month == 5 && now.month < 18) {
+    if (now.year == 2022 && now.month == 5 && now.day < 29) {
       await Future.delayed(const Duration(milliseconds: 2500));
       RouteTransitionDo(
         context: context,

@@ -84,8 +84,6 @@ class _MyAppState extends State<MyApp> {
               return MaterialPageRoute(builder: (_) => Elements());
             case 'BlogPage':
               return MaterialPageRoute(builder: (_) => BlogPage());
-            // case 'HomePage':
-            //   return MaterialPageRoute(builder: (_) => HomePage());
             case 'HallPage':
               return MaterialPageRoute(builder: (_) => HallPage());
             case 'PerfilPage':
@@ -100,7 +98,6 @@ class _MyAppState extends State<MyApp> {
               return MaterialPageRoute(builder: (_) => OpcionesPropiedadesPage());
             case 'InformacionPage':
               return MaterialPageRoute(builder: (_) => InformacionPage());
-            // break;
             default:
               return MaterialPageRoute(builder: (_) => ErrorPage());
           }

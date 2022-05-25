@@ -1,3 +1,4 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:myapp/Theme.dart';
@@ -15,91 +16,97 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 class BotomNavBarWidget extends StatelessWidget {
   final int index;
   const BotomNavBarWidget({
-    Key? key, required this.index,
+    Key? key,
+    required this.index,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    TextStyle unCheckStyle=ThisColors.subtitulo(
-                      Colors.grey.shade500, 16, FontWeight.w400);
-    TextStyle checkStyle= ThisColors.subtitulo(
-                      ThisColors.primary, 16, FontWeight.w700);
-    double sizeUnCheck=35;
-    double sizeCheck=45;
+    TextStyle unCheckStyle =
+        ThisColors.subtitulo(Colors.grey.shade500, 14, FontWeight.w400);
+    TextStyle checkStyle =
+        ThisColors.subtitulo(ThisColors.primary, 14, FontWeight.w700);
+    double sizeUnCheck = 35;
+    double sizeCheck = 45;
 
     return Container(
       width: double.infinity,
-      height: 70,
+      height: 56,
+      // color: Colors.red,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           GestureDetector(
-            onTap: (){
+            onTap: () {
               RouteTransitionDo(
-                          context: context,
-                          animationType: AnimationType.fadeIn,
-                          child: BlogPage());
+                  context: context,
+                  animationType: AnimationType.fadeIn,
+                  child: BlogPage());
             },
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Icon(
-                    LineIcons.bloggerB,
-                    color: (index==0)?ThisColors.primary:Colors.grey.shade500,
-                    size: (index==0)?40:35,
+                    LineIcons.newspaper,
+                    color: (index == 0)
+                        ? ThisColors.primary
+                        : Colors.grey.shade500,
+                    size: (index == 0) ? 35 : 30,
                   ),
                   Text(
                     'Blog',
-                    style: (index==0)?checkStyle:unCheckStyle,
+                    style: (index == 0) ? checkStyle : unCheckStyle,
                   )
                 ],
               ),
             ),
           ),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               RouteTransitionDo(
-                          context: context,
-                          animationType: AnimationType.fadeIn,
-                          child: MisPropiedadesPage());
+                  context: context,
+                  animationType: AnimationType.fadeIn,
+                  child: MisPropiedadesPage());
             },
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Icon(
-                    Icons.business_outlined,
-                    color: (index==1)?ThisColors.primary:Colors.grey.shade500,
-                    size: (index==1)?40:35,
+                    Icons.home_outlined,
+                    color: (index == 1)
+                        ? ThisColors.primary
+                        : Colors.grey.shade500,
+                    size: (index == 1) ? 35 : 30,
                   ),
-                  Text(
-                    'Mis Propiedades',
-                    style: (index==1)?checkStyle:unCheckStyle
-                  )
+                  Text('Mis Propiedades',
+                      style: (index == 1) ? checkStyle : unCheckStyle)
                 ],
               ),
             ),
           ),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               RouteTransitionDo(
-                          context: context,
-                          animationType: AnimationType.fadeIn,
-                          child: PerfilPage());
+                  context: context,
+                  animationType: AnimationType.fadeIn,
+                  child: PerfilPage());
             },
             child: Container(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Icon(
-                    Icons.account_circle,
-                    color: (index==2)?ThisColors.primary:Colors.grey.shade500,
-                    size: (index==2)?40:35,
+                    Icons.account_circle_outlined,
+                    color: (index == 2)
+                        ? ThisColors.primary
+                        : Colors.grey.shade500,
+                    size: (index == 2) ? 35 : 30,
                   ),
                   Text(
                     'Perfil',
-                    style: (index==2)?checkStyle:unCheckStyle,
+                    style: (index == 2) ? checkStyle : unCheckStyle,
                   )
                 ],
               ),
@@ -110,7 +117,6 @@ class BotomNavBarWidget extends StatelessWidget {
     );
   }
 }
-
 
 class DrawerTile extends StatelessWidget {
   final String? title;
@@ -129,7 +135,7 @@ class DrawerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         onTap?.call();
       },
       child: Container(
@@ -156,7 +162,6 @@ class DrawerTile extends StatelessWidget {
     );
   }
 }
-
 
 class ArgonDrawer extends StatefulWidget {
   @override
@@ -188,8 +193,8 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     child: SizedBox(
                       width: 230,
                       height: 220,
-                      child: Image.asset('assets/img4.png',
-                          fit: BoxFit.fitHeight),
+                      child:
+                          Image.asset('assets/img4.png', fit: BoxFit.fitHeight),
                     ),
                   ),
                 ),
@@ -234,12 +239,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                         animationType: AnimationType.fadeIn,
                         child: MisPropiedadesPage(),
                       );
-
                     },
                     iconColor: ArgonColors.info,
                     title: "Mis propiedades",
                     isSelected: nabBarP.index == 2 ? true : false),
-                
               ],
             ),
           ),
@@ -292,7 +295,6 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
   }
 }
 
-
 class Input extends StatelessWidget {
   final String? placeholder;
   final Widget? suffixIcon;
@@ -317,8 +319,8 @@ class Input extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
         cursorColor: ArgonColors.muted,
-        onTap: ()=>onTap,
-        onChanged: (String value)=>onChanged,
+        onTap: () => onTap,
+        onChanged: (String value) => onChanged,
         controller: controller,
         autofocus: autofocus!,
         style:
@@ -343,7 +345,6 @@ class Input extends StatelessWidget {
             hintText: placeholder));
   }
 }
-
 
 class Navbar extends StatefulWidget implements PreferredSizeWidget {
   final String? title;
@@ -476,13 +477,10 @@ class _NavbarState extends State<Navbar> {
                             onTap: () {
                               RouteTransitionDo(
                                   context: context,
-                                  animationType: AnimationType
-                                      .fadeIn, 
-                                  child: NotificacionesPage()
-                                  );
+                                  animationType: AnimationType.fadeIn,
+                                  child: NotificacionesPage());
                             },
                             child: Stack(
-
                               children: [
                                 IconButton(
                                     icon: Icon(Icons.notifications_active,
@@ -639,7 +637,6 @@ class _NavbarState extends State<Navbar> {
   }
 }
 
-
 class TableCellSettings extends StatelessWidget {
   final String? title;
   final Function? onTap;
@@ -648,7 +645,7 @@ class TableCellSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>onTap,
+      onTap: () => onTap,
       child: Padding(
         padding: const EdgeInsets.only(top: 16.0),
         child: Row(

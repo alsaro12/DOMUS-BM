@@ -44,16 +44,23 @@ class _LoginPageState extends State<LoginPage> {
       var usuarioP = Provider.of<UsuarioProvider>(context, listen: false);
       var notificacionesP = Provider.of<NotificacionesProvider>(context, listen: false);
       usuarioP.usuarioSelected.fromJson(userMap['user']);
+      print(userMap['user']);
       pref.lastLogin = DateTime.now();
+      print(userMap['access_token']);
       pref.access_token = userMap['access_token'];
       pref.expires_in = 10800;
       pref.userName = usuarioP.usuarioSelected.name!;
       pref.userEmail = usuarioP.usuarioSelected.email!;
-      pref.userCodeUser = usuarioP.usuarioSelected.codeUser!;
-      pref.userCustomerId= usuarioP.usuarioSelected.customerId!;
       pref.userId= usuarioP.usuarioSelected.id!;
-      pref.residentId=usuarioP.usuarioSelected.residentId!;
+      pref.number_document=usuarioP.usuarioSelected.number_document;
+      pref.phone=usuarioP.usuarioSelected.phone;
+      pref.date_birth=usuarioP.usuarioSelected.date_birth;
+      pref.commentary=usuarioP.usuarioSelected.commentary;
       await notificacionesP.cargarNotificaciones();
+      // pref.phone
+      // pref.userCodeUser = usuarioP.usuarioSelected.codeUser!;
+      // pref.userCustomerId= usuarioP.usuarioSelected.customerId!;
+      // pref.residentId=usuarioP.usuarioSelected.residentId!;
       RouteTransitionDo(
         context: context,
         animationType: AnimationType.fadeIn,
@@ -61,6 +68,7 @@ class _LoginPageState extends State<LoginPage> {
       );
       EasyLoading.showSuccess('Bienvenido: \n${usuarioP.usuarioSelected.name}');
     } catch (e) {
+      print(e);
       EasyLoading.showError('Verifique sus credenciales');
       pref.restaurarValoresPref();
     }

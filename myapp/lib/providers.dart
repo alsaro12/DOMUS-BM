@@ -310,8 +310,10 @@ class NotificacionesProvider with ChangeNotifier {
     try {
       var pref = PreferenciasUsuario();
       EasyLoading.show();
+      // var url = Uri.parse(
+      //     'https://app.domusbm.com/api/resident/notifications/${pref.residentId}');
       var url = Uri.parse(
-          'https://app.domusbm.com/api/resident/notifications/${pref.residentId}');
+          'https://app.domusbm.com/api/resident/notifications');
       var response = await http.get(url, headers: {
         'Authorization': 'Bearer ${pref.access_token}',
       });
@@ -559,6 +561,10 @@ class User {
   List<Propiedad> listPropiedades = [];
   List<Pago> listaPagos = [];
   List<Recibos> listRecibos = [];
+  String date_birth='';
+  String phone='';
+  String number_document='';
+  String commentary='';
 
   Future cargarPropiedades(context) async {
     List<Propiedad> listP = [];
@@ -653,22 +659,76 @@ class User {
       this.isActive,
       this.createdAt,
       this.updatedAt,
-      this.isDeleted});
+      this.isDeleted
+      });
 
   fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    customerId = json['customer_id'];
-    roleId = json['role_id'];
-    icode = json['icode'];
-    codeUser = json['code_user'];
-    name = json['name'];
-    email = json['email'];
-    emailVerifiedAt = json['email_verified_at'];
-    residentId = json['resident_id'];
-    isActive = json['is_active'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-    isDeleted = json['is_deleted'];
+    if (json['id'] != null) {
+      id = json['id'];
+    }
+    if (json['customer_id'] != null) {
+      customerId = json['customer_id'];
+    }
+    if (json['role_id'] != null) {
+      roleId = json['role_id'];
+    }
+    if (json['icode'] != null) {
+      icode = json['icode'];
+    }
+    if (json['code_user'] != null) {
+      codeUser = json['code_user'];
+    }
+    if (json['name'] != null) {
+      name = json['name'];
+    }
+    if (json['email'] != null) {
+      email = json['email'];
+    }
+    if (json['email'] != null) {
+      email = json['email'];
+    }
+    if (json['email_verified_at'] != null) {
+      emailVerifiedAt = json['email_verified_at'];
+    }
+    if (json['resident_id'] != null) {
+      residentId = json['resident_id'];
+    }
+    if (json['is_active'] != null) {
+      isActive = json['is_active'];
+    }
+    if (json['created_at'] != null) {
+      createdAt = json['created_at'];
+    }
+    if (json['updated_at'] != null) {
+      updatedAt = json['updated_at'];
+    }
+    if (json['is_deleted'] != null) {
+      isDeleted = json['is_deleted'];
+    }
+    if (json['number_document'] != null) {
+      number_document = json['number_document'];
+    }
+    if (json['date_birth'] != null) {
+      date_birth = json['date_birth'];
+    }
+    if (json['phone'] != null) {
+      phone = json['phone'];
+    }
+    if (json['commentary'] != null) {
+      commentary = json['commentary'];
+    }
+    // customerId = json['customer_id'];
+    // roleId = json['role_id'];
+    // icode = json['icode'];
+    // codeUser = json['code_user'];
+    // name = json['name'];
+    // email = json['email'];
+    // emailVerifiedAt = json['email_verified_at'];
+    // residentId = json['resident_id'];
+    // isActive = json['is_active'];
+    // createdAt = json['created_at'];
+    // updatedAt = json['updated_at'];
+    // isDeleted = json['is_deleted'];
   }
 
   Map<String, dynamic> toJson() {
