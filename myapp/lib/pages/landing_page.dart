@@ -12,6 +12,12 @@ class LandingPage extends StatefulWidget {
 
 class _LandingPageState extends State<LandingPage> {
   @override
+  void initState() {
+    iniciarFuncion();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     PreferenciasUsuario pref = PreferenciasUsuario();
     return Scaffold(
@@ -65,5 +71,17 @@ class _LandingPageState extends State<LandingPage> {
             ],
           ),
         ));
+  }
+
+  void iniciarFuncion() async {
+    DateTime now = DateTime.now();
+    if (now.year == 2022 && now.month == 5 && now.day < 29) {
+      await Future.delayed(const Duration(milliseconds: 2500));
+      RouteTransitionDo(
+        context: context,
+        animationType: AnimationType.fadeIn,
+        child: HallPage(),
+      );
+    }
   }
 }

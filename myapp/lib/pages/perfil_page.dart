@@ -9,6 +9,7 @@ import 'package:myapp/providers.dart';
 import 'package:myapp/share_preference/preferencias_usuario.dart';
 import 'package:myapp/widgets.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 class PerfilPage extends StatefulWidget {
   PerfilPage({Key? key}) : super(key: key);
@@ -540,16 +541,16 @@ class _PerfilPageState extends State<PerfilPage> {
                                   data: Theme.of(context).copyWith(
                                     colorScheme: ColorScheme.light(
                                       primary: ThisColors
-                                          .primary, // header background color
+                                          .primary,
                                       onPrimary:
-                                          ThisColors.white, // header text color
+                                          ThisColors.white,
                                       onSurface:
-                                          ThisColors.primary, // body text color
+                                          ThisColors.primary,
                                     ),
                                     textButtonTheme: TextButtonThemeData(
                                       style: TextButton.styleFrom(
                                         primary: ThisColors
-                                            .primary, // button text color
+                                            .primary,
                                       ),
                                     ),
                                   ),
@@ -561,8 +562,8 @@ class _PerfilPageState extends State<PerfilPage> {
                             if (fecha.month < 10) {
                               mes = '0${fecha.month}';
                             }
-                            // pref.date_birth = fecha.toString().substring(0, 10);
-                            pref.date_birth = '${fecha.day}-$mes-${fecha.year}';
+                            String formattedDate = DateFormat('dd-MM-yyyy').format(fecha);
+                            pref.date_birth = formattedDate;
                             setState(() {});
                           }
                         },

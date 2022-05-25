@@ -1,7 +1,10 @@
 
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert' as convert;
+
 import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 
 class PreferenciasUsuario {
   static final PreferenciasUsuario _instancia =
@@ -154,9 +157,13 @@ class PreferenciasUsuario {
           'number_document': pref.number_document,
           'phone': pref.phone,
           'date_birth': pref.date_birth,
+          // 'date_birth': '',
           'commentary': pref.commentary,
         }
       );
+      print(pref.date_birth);
+        print(response.body);
+        
       EasyLoading.dismiss();
     } catch (e) {
       EasyLoading.showError(
