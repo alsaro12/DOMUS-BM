@@ -21,7 +21,7 @@ class _InformacionPageState extends State<InformacionPage> {
     return Scaffold(
       drawer: ArgonDrawer(),
       appBar: Navbar(
-        title: 'Informacion',
+        title: 'Información',
 
         bgColor: Color(0xff48C1D3),
         backButton: true,
@@ -53,7 +53,7 @@ class _InformacionPageState extends State<InformacionPage> {
                                 children: [
                                   Gap(10),
                                   Text(
-                                    'Area',
+                                    'Área',
                                     style: ThisColors.titulo(
                                         Color(0xff565657), 16, FontWeight.w700),
                                   ),
@@ -80,7 +80,7 @@ class _InformacionPageState extends State<InformacionPage> {
                                 children: [
                                   Gap(10),
                                   Text(
-                                    'Participacion',
+                                    'Participación',
                                     style: ThisColors.titulo(
                                         Color(0xff565657), 16, FontWeight.w700),
                                   ),
@@ -94,7 +94,7 @@ class _InformacionPageState extends State<InformacionPage> {
                                   ),
                                   Gap(10),
                                   Text(
-                                    'Pocentaje',
+                                    'Porcentaje',
                                     style: ThisColors.titulo(
                                         Color.fromARGB(255, 115, 115, 118),
                                         13,
@@ -486,7 +486,7 @@ class _InformacionPageState extends State<InformacionPage> {
                                   children: [
                                     Gap(10),
                                     Text(
-                                      'Almacen(es)',
+                                      'Depósito(s)',
                                       style: ThisColors.titulo(
                                           Color(0xff565657),
                                           16,
@@ -599,10 +599,10 @@ class _InformacionPageState extends State<InformacionPage> {
                                                     subtitle: Column(
                                                       children: [
                                                         Text(
-                                                            'Area: ${UsuarioP.propiedadSelected.informacionPropiedad.estates!.elementAt(index).area!} mtrs2'),
+                                                            'Área: ${UsuarioP.propiedadSelected.informacionPropiedad.estates!.elementAt(index).area!} mtrs2'),
                                                         Gap(5),
                                                         Text(
-                                                            'Participacion: ${UsuarioP.propiedadSelected.informacionPropiedad.estates!.elementAt(index).holding!}'),
+                                                            'Participación: ${UsuarioP.propiedadSelected.informacionPropiedad.estates!.elementAt(index).holding!}'),
                                                       ],
                                                     ),
                                                   ),
@@ -619,7 +619,7 @@ class _InformacionPageState extends State<InformacionPage> {
                                   children: [
                                     Gap(10),
                                     Text(
-                                      'Tienda(s)',
+                                      'Inmueble(s)',
                                       style: ThisColors.titulo(
                                           Color(0xff565657),
                                           16,

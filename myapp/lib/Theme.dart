@@ -41,6 +41,7 @@ class ArgonColors {
 
 
 class ThisColors {
+  static const Color turquesa = Color(0xFF00C4D6);
   static const Color black = Color(0xFF000000);
 
   static const Color white = Color(0xFFFFFFFF);

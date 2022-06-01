@@ -24,7 +24,7 @@ class _BlogPageState extends State<BlogPage> {
       drawer: ArgonDrawer(),
       appBar: Navbar(
         title: "Blog",
-        bgColor: ThisColors.label,
+        bgColor: ThisColors.turquesa,
       ),
       body: SafeArea(
         child: Padding(
@@ -55,7 +55,7 @@ class _BlogPageState extends State<BlogPage> {
                               children: [
                                 Container(
                                   height: 25,
-                                  color: ThisColors.label,
+                                  color: ThisColors.turquesa,
                                   child: Center(
                                     child: Text(
                                       '${publicacion.name_building}',

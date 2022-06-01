@@ -99,8 +99,14 @@ class _CameraAppState extends State<CameraApp> {
                       ),
                       title: TextFormField(
                         controller: comentario,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                         decoration: InputDecoration(
                           hintText: ('Comentario aquí'),
+                          hintStyle: TextStyle(
+                          color: Colors.white,
+                        ),
                         ),
                       ),
                     ),
@@ -164,10 +170,10 @@ class _CameraAppState extends State<CameraApp> {
                               width: 150,
                               height: 50,
                               decoration: BoxDecoration(
-                                color: ThisColors.success,
-                                border: Border.all(
-                                    width: 4.0,
-                                    color: Color.fromARGB(255, 53, 30, 90)),
+                                color: ThisColors.turquesa,
+                                // border: Border.all(
+                                //     width: 4.0,
+                                //     color: Color.fromARGB(255, 53, 30, 90)),
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(
                                     5.0,
@@ -225,7 +231,7 @@ class _CameraAppState extends State<CameraApp> {
       drawer: ArgonDrawer(),
       appBar: Navbar(
         title: 'CAMARA',
-        bgColor: ThisColors.primary,
+        bgColor: ThisColors.turquesa,
         backButton: true,
       ),
       body: Stack(

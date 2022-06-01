@@ -40,6 +40,7 @@ class _PerfilPageState extends State<PerfilPage> {
   Widget build(BuildContext context) {
     var pref = PreferenciasUsuario();
     var usuarioP = Provider.of<UsuarioProvider>(context, listen: false);
+    Color colorNegroClaro =Color.fromARGB(255, 50, 50, 50);
     return SafeArea(
       top: false,
       child: Scaffold(
@@ -160,8 +161,8 @@ class _PerfilPageState extends State<PerfilPage> {
                           }
                         },
                         child: Container(
-                          height: 50,
-                          width: 70,
+                          height: 60,
+                          width: 100,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             color: ThisColors.primary.withOpacity(0.85),
@@ -171,7 +172,8 @@ class _PerfilPageState extends State<PerfilPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
-                                'Actualizar',
+                                'Presiona para actualizar',
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 11),
                               ),
@@ -193,14 +195,18 @@ class _PerfilPageState extends State<PerfilPage> {
                   Gap(45),
                   Row(
                     children: [
-                      Text(
-                        'Nombre:',
-                        style: ThisColors.titulo(
-                            Color.fromARGB(255, 34, 20, 48),
-                            17,
-                            FontWeight.bold),
+                      Container(
+                        width: 100,
+                        // color: Colors.red,
+                        child: Text(
+                          'Nombre:',
+                          style: ThisColors.titulo(
+                              colorNegroClaro,
+                              17,
+                              FontWeight.bold),
+                        ),
                       ),
-                      Gap(20),
+                      // Gap(20),
                       Container(
                         // color: Colors.red,
                         width: 200,
@@ -219,14 +225,18 @@ class _PerfilPageState extends State<PerfilPage> {
                   Gap(15),
                   Row(
                     children: [
-                      Text(
-                        'Correo:',
-                        style: ThisColors.titulo(
-                            Color.fromARGB(255, 34, 20, 48),
-                            17,
-                            FontWeight.bold),
+                      Container(
+                        width: 100,
+                        // color: Colors.red,
+                        child: Text(
+                          'Correo:',
+                          style: ThisColors.titulo(
+                              colorNegroClaro,
+                              17,
+                              FontWeight.bold),
+                        ),
                       ),
-                      Gap(20),
+                      // Gap(20),
                       Container(
                         // color: Colors.red,
                         width: 200,
@@ -247,14 +257,18 @@ class _PerfilPageState extends State<PerfilPage> {
                   Gap(15),
                   Row(
                     children: [
-                      Text(
-                        'Usuario:',
-                        style: ThisColors.titulo(
-                            Color.fromARGB(255, 34, 20, 48),
-                            17,
-                            FontWeight.bold),
+                      Container(
+                        width: 100,
+                        // color: Colors.red,
+                        child: Text(
+                          'Usuario:',
+                          style: ThisColors.titulo(
+                              colorNegroClaro,
+                              17,
+                              FontWeight.bold),
+                        ),
                       ),
-                      Gap(20),
+                      // Gap(20),
                       Container(
                         // color: Colors.red,
                         width: 200,
@@ -275,17 +289,20 @@ class _PerfilPageState extends State<PerfilPage> {
                   Gap(15),
                   Row(
                     children: [
-                      Text(
-                        'Doc. identidad:',
-                        style: ThisColors.titulo(
-                            Color.fromARGB(255, 34, 20, 48),
-                            17,
-                            FontWeight.bold),
+                      Container(
+                        width: 100,
+                        child: Text(
+                          'Doc. identidad:',
+                          style: ThisColors.titulo(
+                              colorNegroClaro,
+                              17,
+                              FontWeight.bold),
+                        ),
                       ),
-                      Gap(20),
+                      // Gap(20),
                       Container(
                         // color: Colors.red,
-                        width: 120,
+                        width: 180,
                         child: AutoSizeText(
                           pref.number_document,
                           style: ThisColors.titulo(
@@ -306,12 +323,12 @@ class _PerfilPageState extends State<PerfilPage> {
                             builder: (BuildContext context) {
                               return SimpleDialog(
                                 backgroundColor: ThisColors.primary,
-                                title: Text('Ingrese su nro de DNI',
+                                title: Text('Ingrese su nro de documento de identidad',
                                     style: TextStyle(color: Colors.white)),
                                 children: [
                                   Gap(10),
                                   ListTile(
-                                    leading: Text('DNI:',
+                                    leading: Text('Doc. Identidad:',
                                         style: TextStyle(color: Colors.white)),
                                     title: TextFormField(
                                       style: TextStyle(color: Colors.white),
@@ -391,17 +408,20 @@ class _PerfilPageState extends State<PerfilPage> {
                   Gap(15),
                   Row(
                     children: [
-                      Text(
-                        'Telefono:',
-                        style: ThisColors.titulo(
-                            Color.fromARGB(255, 34, 20, 48),
-                            17,
-                            FontWeight.bold),
+                      Container(
+                        width: 100,
+                        child: Text(
+                          'Teléfono:',
+                          style: ThisColors.titulo(
+                              colorNegroClaro,
+                              17,
+                              FontWeight.bold),
+                        ),
                       ),
-                      Gap(20),
+                      // Gap(20),
                       Container(
                         // color: Colors.red,
-                        width: 156,
+                        width: 180,
                         child: AutoSizeText(
                           pref.phone,
                           style: ThisColors.titulo(
@@ -505,17 +525,20 @@ class _PerfilPageState extends State<PerfilPage> {
                   Gap(15),
                   Row(
                     children: [
-                      Text(
-                        'F. Nacimiento:',
-                        style: ThisColors.titulo(
-                            Color.fromARGB(255, 34, 20, 48),
-                            17,
-                            FontWeight.bold),
+                      Container(
+                        width: 100,
+                        child: Text(
+                          'F. Nacimiento:',
+                          style: ThisColors.titulo(
+                              colorNegroClaro,
+                              17,
+                              FontWeight.bold),
+                        ),
                       ),
-                      Gap(20),
+                      // Gap(20),
                       Container(
                         // color: Colors.red,
-                        width: 120,
+                        width: 180,
                         child: Text(
                           (pref.date_birth.isNotEmpty)
                               ? pref.date_birth
@@ -575,17 +598,20 @@ class _PerfilPageState extends State<PerfilPage> {
                   Gap(15),
                   Row(
                     children: [
-                      Text(
-                        'Obser:',
-                        style: ThisColors.titulo(
-                            Color.fromARGB(255, 34, 20, 48),
-                            17,
-                            FontWeight.bold),
+                      Container(
+                        width: 100,
+                        child: Text(
+                          'Observacion:',
+                          style: ThisColors.titulo(
+                              colorNegroClaro,
+                              15,
+                              FontWeight.bold),
+                        ),
                       ),
-                      Gap(20),
+                      // Gap(20),
                       Container(
                         // color: Colors.red,
-                        width: 178,
+                        width: 180,
                         height: 150,
                         child: Text(
                           (pref.commentary.isNotEmpty)

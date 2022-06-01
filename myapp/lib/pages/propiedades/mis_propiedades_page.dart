@@ -67,7 +67,7 @@ class _MisPropiedadesPageState extends State<MisPropiedadesPage> {
                                       );
                                     },
                                     child: Padding(
-                                      padding: const EdgeInsets.all(7.0),
+                                      padding: const EdgeInsets.all(0.0),
                                       child: Container(
                                         width: double.infinity,
                                         height: 150,

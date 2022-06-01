@@ -141,12 +141,12 @@ class DrawerTile extends StatelessWidget {
       child: Container(
           padding: EdgeInsets.all(16),
           decoration: BoxDecoration(
-              color: isSelected! ? ThisColors.secondary : Colors.transparent,
+              color: isSelected! ? ThisColors.primary : Colors.transparent,
               borderRadius: BorderRadius.all(Radius.circular(8))),
           child: Row(
             children: [
               Icon(icon,
-                  size: 20, color: isSelected! ? ArgonColors.white : iconColor),
+                  size: 20, color: isSelected! ? ThisColors.white : ThisColors.primary),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(title!,
@@ -155,7 +155,7 @@ class DrawerTile extends StatelessWidget {
                         fontSize: 15,
                         color: isSelected!
                             ? ArgonColors.white
-                            : Color.fromARGB(177, 231, 225, 225))),
+                            : ThisColors.primary)),
               )
             ],
           )),
@@ -175,10 +175,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
     var pref = PreferenciasUsuario();
     return Drawer(
         child: Container(
-      color: ThisColors.primary,
+      color: Colors.white,
       child: Column(children: [
         Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: 55.0),
           child: Container(
               height: MediaQuery.of(context).size.height * 0.12,
               width: MediaQuery.of(context).size.width * 0.85,
@@ -193,8 +193,11 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                     child: SizedBox(
                       width: 230,
                       height: 220,
-                      child:
-                          Image.asset('assets/img4.png', fit: BoxFit.fitHeight),
+                      child: Transform.scale(
+                        scale: 2,
+                        child: Image.asset('assets/img4.png',
+                            fit: BoxFit.fitHeight),
+                      ),
                     ),
                   ),
                 ),
@@ -202,10 +205,12 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
         ),
         Consumer<NavBarProvider>(
           builder: (BuildContext context, nabBarP, Widget? child) => Expanded(
-            flex: 2,
+            flex: 8,
             child: ListView(
-              padding: EdgeInsets.only(top: 24, left: 16, right: 16),
+              padding: EdgeInsets.only(top: 70, left: 16, right: 16),
               children: [
+                const Divider(
+                    height: 4, thickness: 0, color: ArgonColors.muted),
                 DrawerTile(
                     icon: LineIcons.blog,
                     onTap: () {
@@ -215,7 +220,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                           animationType: AnimationType.fadeIn,
                           child: BlogPage());
                     },
-                    iconColor: ArgonColors.primary,
+                    iconColor: ThisColors.primary,
                     title: "Blog",
                     isSelected: nabBarP.index == 0 ? true : false),
                 DrawerTile(
@@ -248,7 +253,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
           ),
         ),
         Expanded(
-          flex: 1,
+          flex: 3,
           child: Container(
               padding: EdgeInsets.only(left: 8, right: 16),
               child: Column(
@@ -258,10 +263,10 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                   const Divider(
                       height: 4, thickness: 0, color: ArgonColors.muted),
                   const Padding(
-                    padding: EdgeInsets.only(top: 16.0, left: 16, bottom: 8),
+                    padding: EdgeInsets.only(top: 16.0, left: 16, bottom: 0),
                     child: Text("Otros",
                         style: TextStyle(
-                          color: Color.fromARGB(126, 238, 232, 232),
+                          color: ThisColors.primary,
                           fontSize: 15,
                         )),
                   ),
@@ -269,7 +274,7 @@ class _ArgonDrawerState extends State<ArgonDrawer> {
                       icon: Icons.info_outline,
                       onTap: () {},
                       iconColor: ArgonColors.muted,
-                      title: "Terminos y condiciones",
+                      title: "Términos y condiciones",
                       isSelected: false),
                   Consumer<NavBarProvider>(
                     builder: (BuildContext context, navBarP, Widget? child) =>

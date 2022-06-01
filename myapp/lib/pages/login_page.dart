@@ -95,29 +95,32 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Gap(30),
-                    FadeInDown(
-                      duration: const Duration(milliseconds: 1500),
-                      child: SizedBox(
-                        width: 330,
-                        height: 150,
-                        child: Image.asset('assets/img4.png', fit: BoxFit.fitHeight,alignment: Alignment.center),
+                    Gap(90),
+                    Transform.scale(
+                      scale: 1.5,
+                      child: FadeInDown(
+                        duration: const Duration(milliseconds: 1500),
+                        child: SizedBox(
+                          width: 330,
+                          height: 150,
+                          child: Image.asset('assets/img4.png', fit: BoxFit.fitHeight,alignment: Alignment.center),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 45.0),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text(pref.nombreEdificio,
-                            style: TextStyle(
-                                fontSize: 44,
-                                color: ThisColors.primary,
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(top: 45.0),
+                    //   child: Align(
+                    //     alignment: Alignment.center,
+                    //     child: Text(pref.nombreEdificio,
+                    //         style: TextStyle(
+                    //             fontSize: 44,
+                    //             color: ThisColors.primary,
+                    //             fontWeight: FontWeight.bold)),
+                    //   ),
+                    // ),
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 45.0, left: 25, right: 25),
+                          const EdgeInsets.only(top: 85.0, left: 25, right: 25),
                       child: Input(
                         placeholder: "Correo electrónico",
                         prefixIcon: Icon(Icons.ac_unit),

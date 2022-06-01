@@ -27,7 +27,7 @@ class _VerDeudasPageState extends State<VerDeudasPage> {
       drawer: ArgonDrawer(),
       appBar: Navbar(
         title: 'DEUDAS',
-        bgColor: ThisColors.label,
+        bgColor: ThisColors.turquesa,
         backButton: true,
       ),
       body: SafeArea(
@@ -55,7 +55,7 @@ class _VerDeudasPageState extends State<VerDeudasPage> {
                       width: 200,
                       height: 80,
                       decoration:
-                          ThisColors.boxDecoration(15, ThisColors.label),
+                          ThisColors.boxDecoration(15, Colors.transparent),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,13 +64,13 @@ class _VerDeudasPageState extends State<VerDeudasPage> {
                               '${usuarioP.propiedadSelected.amount_debt}',
                               textAlign: TextAlign.center,
                               style: ThisColors.titulo(
-                                  ThisColors.white, 30, FontWeight.w700),
+                                  Colors.black87, 30, FontWeight.w700),
                             ),
                             Text(
                               'Nuevos Soles.',
                               textAlign: TextAlign.center,
                               style: ThisColors.titulo(
-                                  ThisColors.white, 13, FontWeight.w700),
+                                  Colors.black87, 13, FontWeight.w700),
                             ),
                           ],
                         ),
@@ -128,7 +128,7 @@ class _VerDeudasPageState extends State<VerDeudasPage> {
                                     deuda.amount_debt,
                                     style: ThisColors.titulo(
                                         // ThisColors.label,
-                                        ThisColors.label,
+                                        ThisColors.turquesa,
                                         20,
                                         FontWeight.w700),
                                   ),
@@ -145,7 +145,7 @@ class _VerDeudasPageState extends State<VerDeudasPage> {
                                       }
                                     },
                                     child: Icon(LineIcons.pdfFile,
-                                        size: 38, color: ThisColors.label),
+                                        size: 38, color: ThisColors.turquesa),
                                   ),
                                   Gap(20),
                                   GestureDetector(
@@ -158,7 +158,7 @@ class _VerDeudasPageState extends State<VerDeudasPage> {
                                   );
                                     },
                                     child: Icon(LineIcons.camera,
-                                        size: 38, color: ThisColors.label),
+                                        size: 38, color: ThisColors.turquesa),
                                   ),
                                 ],
                               ),

@@ -18,6 +18,7 @@ class _VerRecibosPageState extends State<VerRecibosPage> {
   Widget build(BuildContext context) {
     var UsuarioP = Provider.of<UsuarioProvider>(context, listen: false);
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       drawer: ArgonDrawer(),
       appBar: Navbar(
         title: 'RECIBOS',
@@ -55,8 +56,7 @@ class _VerRecibosPageState extends State<VerRecibosPage> {
                         height: 70,
                         decoration: ThisColors.boxDecoration(
                           15,
-                          const Color.fromARGB(255, 182, 182, 188)
-                              .withOpacity(0.3),
+                          Colors.white,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

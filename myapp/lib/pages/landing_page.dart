@@ -50,21 +50,21 @@ class _LandingPageState extends State<LandingPage> {
                             Image.asset('assets/img3.png', fit: BoxFit.cover),
                       ),
                     ),
-                    FadeInLeft(
-                      duration: const Duration(milliseconds: 1500),
-                      child: Container(
-                        // color: Colors.red,
-                        width: 265,
-                        height: 80,
-                        child: Center(
-                          child: Text(
-                            pref.nombreEdificio,
-                            style: ThisColors.titulo(
-                                ThisColors.primary, 34, FontWeight.w600),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // FadeInLeft(
+                    //   duration: const Duration(milliseconds: 1500),
+                    //   child: Container(
+                    //     // color: Colors.red,
+                    //     width: 265,
+                    //     height: 80,
+                    //     child: Center(
+                    //       child: Text(
+                    //         pref.nombreEdificio,
+                    //         style: ThisColors.titulo(
+                    //             ThisColors.primary, 34, FontWeight.w600),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -75,13 +75,11 @@ class _LandingPageState extends State<LandingPage> {
 
   void iniciarFuncion() async {
     DateTime now = DateTime.now();
-    if (now.year == 2022 && now.month == 5 && now.day < 29) {
       await Future.delayed(const Duration(milliseconds: 2500));
       RouteTransitionDo(
         context: context,
         animationType: AnimationType.fadeIn,
         child: HallPage(),
       );
-    }
   }
 }

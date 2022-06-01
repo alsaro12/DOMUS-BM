@@ -72,7 +72,7 @@ class _OpcionesPropiedadesPageState extends State<OpcionesPropiedadesPage> {
                                     ),
                                     Gap(10),
                                     Text(
-                                      'Total de recibos pendientes de pago',
+                                      'Total de recibos pendientes de pago.',
                                       style: ThisColors.titulo(
                                           Color.fromARGB(255, 115, 115, 118),
                                           13,
@@ -137,7 +137,7 @@ class _OpcionesPropiedadesPageState extends State<OpcionesPropiedadesPage> {
                           children: [
                             Gap(10),
                             Text(
-                              'INFORMACION',
+                              'INFORMACIÓN',
                               style: ThisColors.titulo(
                                   Color(0xff565657), 16, FontWeight.w700),
                             ),
@@ -150,7 +150,7 @@ class _OpcionesPropiedadesPageState extends State<OpcionesPropiedadesPage> {
                                     Container(
                                       width: 250,
                                       child: Text(
-                                        'Informacion adificional del departamento: propietario, estacionamiento, etc.',
+                                        'Información adicional del departamento: propietario, estacionamiento, etc.',
                                         style: ThisColors.titulo(
                                             Color.fromARGB(255, 115, 115, 118),
                                             13,
@@ -310,7 +310,7 @@ class _OpcionesPropiedadesPageState extends State<OpcionesPropiedadesPage> {
                                     Container(
                                       width: 250,
                                       child: Text(
-                                        'Revisa el historial de pagos y envia una foto de tu comprovante pagado',
+                                        'Revisa el historial de pagos.',
                                         style: ThisColors.titulo(
                                             Color.fromARGB(255, 115, 115, 118),
                                             13,

@@ -52,7 +52,7 @@ class _HallPageState extends State<HallPage> {
           ),
           Column(
             children: [
-              Gap(40),
+              Gap(120),
               Container(
                 height: 160,
                 width: 160,
@@ -60,17 +60,17 @@ class _HallPageState extends State<HallPage> {
                     15, Colors.white.withOpacity(0.7)),
                 child: Image.asset('assets/img3.png', fit: BoxFit.cover),
               ),
-              SizedBox(
-                width: 265,
-                height: 80,
-                child: Center(
-                  child: Text(
-                    pref.nombreEdificio,
-                    style: ThisColors.titulo(
-                        ThisColors.primary, 34, FontWeight.w800),
-                  ),
-                ),
-              ),
+              // SizedBox(
+              //   width: 265,
+              //   height: 80,
+              //   child: Center(
+              //     child: Text(
+              //       pref.nombreEdificio,
+              //       style: ThisColors.titulo(
+              //           ThisColors.primary, 34, FontWeight.w800),
+              //     ),
+              //   ),
+              // ),
               Expanded(
                 child: Column(
                   children: [
