@@ -40,7 +40,7 @@ class _PerfilPageState extends State<PerfilPage> {
   Widget build(BuildContext context) {
     var pref = PreferenciasUsuario();
     var usuarioP = Provider.of<UsuarioProvider>(context, listen: false);
-    Color colorNegroClaro =Color.fromARGB(255, 50, 50, 50);
+    Color colorNegroClaro = Color.fromARGB(255, 50, 50, 50);
     return SafeArea(
       top: false,
       child: Scaffold(
@@ -53,171 +53,50 @@ class _PerfilPageState extends State<PerfilPage> {
         bottomNavigationBar: BotomNavBarWidget(index: 2),
         body: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.all(25.0),
+            padding: const EdgeInsets.only(top:25.0,left: 25,right: 10,bottom: 10),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(
-                    children: [
-                      Container(
-                        height: 75,
-                        width: 75,
-                        decoration: BoxDecoration(
-                          color: ThisColors.primary,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Text(
-                            siglasNombre,
-                            style: ThisColors.titulo(
-                                ThisColors.white, 25, FontWeight.w400),
-                          ),
-                        ),
-                      ),
-                      Gap(20),
-                      GestureDetector(
-                        onTap: () async {
-                          var rpta = await showDialog(
-                            // barrierColor: ThisColors.primary,
-
-                            barrierDismissible: true,
-                            context: context,
-                            builder: (BuildContext context) {
-                              return SimpleDialog(
-                                backgroundColor: ThisColors.primary,
-                                title: Text(
-                                  '¿Desea actualizar los datos de su perfil?',
-                                  style: ThisColors.titulo(
-                                      Color.fromARGB(255, 255, 255, 255),
-                                      25,
-                                      FontWeight.w400),
-                                ),
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context, false);
-                                        },
-                                        child: Container(
-                                          width: 80,
-                                          height: 25,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: Color.fromARGB(
-                                                255, 217, 49, 49),
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              'No',
-                                              style: ThisColors.titulo(
-                                                  ThisColors.white,
-                                                  15,
-                                                  FontWeight.w400),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context, true);
-                                        },
-                                        child: Container(
-                                          width: 80,
-                                          height: 25,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: Color.fromARGB(
-                                                255, 66, 179, 49),
-                                          ),
-                                          child: Center(
-                                            child: Text(
-                                              'Si',
-                                              style: ThisColors.titulo(
-                                                  ThisColors.white,
-                                                  15,
-                                                  FontWeight.w400),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              );
-                            },
-                          );
-                          if (rpta) {
-                            // EasyLoading.show(
-                            //     status: 'Actualizando datos de perfil');
-                            await pref.updatePerfil();
-                            EasyLoading.dismiss();
-                          }
-                        },
-                        child: Container(
-                          height: 60,
-                          width: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: ThisColors.primary.withOpacity(0.85),
-                            // shape: BoxShape.rectangle,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                'Presiona para actualizar',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 11),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 3.0),
-                                child: Icon(
-                                  Icons.update,
-                                  color: Colors.white,
-                                  size: 23,
-                                ),
-                              ),
-                              // Gap(3),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                  Gap(20),
+                  Center(
+                    child: Text(
+                      'MI PERFIL',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 24),
+                    ),
                   ),
                   Gap(45),
                   Row(
                     children: [
                       Container(
-                        width: 100,
+                        width: 85,
                         // color: Colors.red,
                         child: Text(
-                          'Nombre:',
+                          'Nombre',
                           style: ThisColors.titulo(
-                              colorNegroClaro,
-                              17,
-                              FontWeight.bold),
+                              colorNegroClaro, 14, FontWeight.bold),
                         ),
                       ),
                       // Gap(20),
-                      Container(
-                        // color: Colors.red,
-                        width: 200,
-                        child: AutoSizeText(
-                          '${pref.userName}',
-                          style: ThisColors.titulo(
-                              Color.fromARGB(255, 137, 109, 142),
-                              13,
-                              FontWeight.bold),
-                          maxLines: 2,
-                        ),
+                      Row(
+                        children: [
+                          Text(':'),
+                          Gap(10),
+                          Container(
+                            // color: Colors.red,
+                            width: 200,
+                            child: AutoSizeText(
+                              '${pref.userName}',
+                              style: ThisColors.titulo(
+                                  Color.fromARGB(255, 137, 109, 142),
+                                  13,
+                                  FontWeight.bold),
+                              maxLines: 2,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -226,28 +105,32 @@ class _PerfilPageState extends State<PerfilPage> {
                   Row(
                     children: [
                       Container(
-                        width: 100,
+                        width: 85,
                         // color: Colors.red,
                         child: Text(
-                          'Correo:',
+                          'Correo',
                           style: ThisColors.titulo(
-                              colorNegroClaro,
-                              17,
-                              FontWeight.bold),
+                              colorNegroClaro, 14, FontWeight.bold),
                         ),
                       ),
                       // Gap(20),
-                      Container(
-                        // color: Colors.red,
-                        width: 200,
-                        child: AutoSizeText(
-                          '${pref.userEmail}',
-                          style: ThisColors.titulo(
-                              Color.fromARGB(255, 137, 109, 142),
-                              13,
-                              FontWeight.bold),
-                          maxLines: 2,
-                        ),
+                      Row(
+                        children: [
+                          Text(':'),
+                          Gap(10),
+                          Container(
+                            // color: Colors.red,
+                            width: 200,
+                            child: AutoSizeText(
+                              '${pref.userEmail}',
+                              style: ThisColors.titulo(
+                                  Color.fromARGB(255, 137, 109, 142),
+                                  13,
+                                  FontWeight.bold),
+                              maxLines: 2,
+                            ),
+                          ),
+                        ],
                       ),
                       // Gap(10),
                       // Icon(EvaIcons.edit),
@@ -258,28 +141,32 @@ class _PerfilPageState extends State<PerfilPage> {
                   Row(
                     children: [
                       Container(
-                        width: 100,
+                        width: 85,
                         // color: Colors.red,
                         child: Text(
-                          'Usuario:',
+                          'Cod. de\nUsuario',
                           style: ThisColors.titulo(
-                              colorNegroClaro,
-                              17,
-                              FontWeight.bold),
+                              colorNegroClaro, 14, FontWeight.bold),
                         ),
                       ),
                       // Gap(20),
-                      Container(
-                        // color: Colors.red,
-                        width: 200,
-                        child: AutoSizeText(
-                          '${pref.userId}',
-                          style: ThisColors.titulo(
-                              Color.fromARGB(255, 137, 109, 142),
-                              13,
-                              FontWeight.bold),
-                          maxLines: 2,
-                        ),
+                      Row(
+                        children: [
+                          Text(':'),
+                          Gap(10),
+                          Container(
+                            // color: Colors.red,
+                            width: 200,
+                            child: AutoSizeText(
+                              '${pref.userId}',
+                              style: ThisColors.titulo(
+                                  Color.fromARGB(255, 137, 109, 142),
+                                  13,
+                                  FontWeight.bold),
+                              maxLines: 2,
+                            ),
+                          ),
+                        ],
                       ),
                       // Gap(10),
                       // Icon(EvaIcons.edit),
@@ -290,27 +177,31 @@ class _PerfilPageState extends State<PerfilPage> {
                   Row(
                     children: [
                       Container(
-                        width: 100,
+                        width: 85,
                         child: Text(
-                          'Doc. identidad:',
+                          'Doc. de\nIdentidad',
                           style: ThisColors.titulo(
-                              colorNegroClaro,
-                              17,
-                              FontWeight.bold),
+                              colorNegroClaro, 14, FontWeight.bold),
                         ),
                       ),
                       // Gap(20),
-                      Container(
-                        // color: Colors.red,
-                        width: 180,
-                        child: AutoSizeText(
-                          pref.number_document,
-                          style: ThisColors.titulo(
-                              Color.fromARGB(255, 137, 109, 142),
-                              13,
-                              FontWeight.bold),
-                          maxLines: 2,
-                        ),
+                      Row(
+                        children: [
+                          Text(':'),
+                          Gap(10),
+                          Container(
+                            // color: Colors.red,
+                            width: 180,
+                            child: AutoSizeText(
+                              pref.number_document,
+                              style: ThisColors.titulo(
+                                  Color.fromARGB(255, 137, 109, 142),
+                                  13,
+                                  FontWeight.bold),
+                              maxLines: 2,
+                            ),
+                          ),
+                        ],
                       ),
                       Gap(10),
                       GestureDetector(
@@ -323,7 +214,8 @@ class _PerfilPageState extends State<PerfilPage> {
                             builder: (BuildContext context) {
                               return SimpleDialog(
                                 backgroundColor: ThisColors.primary,
-                                title: Text('Ingrese su nro de documento de identidad',
+                                title: Text(
+                                    'Ingrese su nro de documento de identidad',
                                     style: TextStyle(color: Colors.white)),
                                 children: [
                                   Gap(10),
@@ -409,27 +301,31 @@ class _PerfilPageState extends State<PerfilPage> {
                   Row(
                     children: [
                       Container(
-                        width: 100,
+                        width: 85,
                         child: Text(
-                          'Teléfono:',
+                          'Teléfono',
                           style: ThisColors.titulo(
-                              colorNegroClaro,
-                              17,
-                              FontWeight.bold),
+                              colorNegroClaro, 14, FontWeight.bold),
                         ),
                       ),
                       // Gap(20),
-                      Container(
-                        // color: Colors.red,
-                        width: 180,
-                        child: AutoSizeText(
-                          pref.phone,
-                          style: ThisColors.titulo(
-                              Color.fromARGB(255, 137, 109, 142),
-                              13,
-                              FontWeight.bold),
-                          maxLines: 2,
-                        ),
+                      Row(
+                        children: [
+                          Text(':'),
+                          Gap(10),
+                          Container(
+                            // color: Colors.red,
+                            width: 180,
+                            child: AutoSizeText(
+                              pref.phone,
+                              style: ThisColors.titulo(
+                                  Color.fromARGB(255, 137, 109, 142),
+                                  13,
+                                  FontWeight.bold),
+                              maxLines: 2,
+                            ),
+                          ),
+                        ],
                       ),
                       Gap(10),
                       GestureDetector(
@@ -526,30 +422,34 @@ class _PerfilPageState extends State<PerfilPage> {
                   Row(
                     children: [
                       Container(
-                        width: 100,
+                        width: 85,
                         child: Text(
-                          'F. Nacimiento:',
+                          'Fecha de \nNacimiento',
                           style: ThisColors.titulo(
-                              colorNegroClaro,
-                              17,
-                              FontWeight.bold),
+                              colorNegroClaro, 14, FontWeight.bold),
                         ),
                       ),
                       // Gap(20),
-                      Container(
-                        // color: Colors.red,
-                        width: 180,
-                        child: Text(
-                          (pref.date_birth.isNotEmpty)
-                              ? pref.date_birth
-                              : 'PENDIENTE',
-                          // '10.10.1000 9pm',
-                          style: ThisColors.titulo(
-                              Color.fromARGB(255, 137, 109, 142),
-                              13,
-                              FontWeight.bold),
-                          maxLines: 2,
-                        ),
+                      Row(
+                        children: [
+                          Text(':'),
+                          Gap(10),
+                          Container(
+                            // color: Colors.red,
+                            width: 180,
+                            child: Text(
+                              (pref.date_birth.isNotEmpty)
+                                  ? pref.date_birth
+                                  : 'PENDIENTE',
+                              // '10.10.1000 9pm',
+                              style: ThisColors.titulo(
+                                  Color.fromARGB(255, 137, 109, 142),
+                                  13,
+                                  FontWeight.bold),
+                              maxLines: 2,
+                            ),
+                          ),
+                        ],
                       ),
                       Gap(10),
                       GestureDetector(
@@ -563,17 +463,13 @@ class _PerfilPageState extends State<PerfilPage> {
                                 return Theme(
                                   data: Theme.of(context).copyWith(
                                     colorScheme: ColorScheme.light(
-                                      primary: ThisColors
-                                          .primary,
-                                      onPrimary:
-                                          ThisColors.white,
-                                      onSurface:
-                                          ThisColors.primary,
+                                      primary: ThisColors.primary,
+                                      onPrimary: ThisColors.white,
+                                      onSurface: ThisColors.primary,
                                     ),
                                     textButtonTheme: TextButtonThemeData(
                                       style: TextButton.styleFrom(
-                                        primary: ThisColors
-                                            .primary,
+                                        primary: ThisColors.primary,
                                       ),
                                     ),
                                   ),
@@ -585,7 +481,8 @@ class _PerfilPageState extends State<PerfilPage> {
                             if (fecha.month < 10) {
                               mes = '0${fecha.month}';
                             }
-                            String formattedDate = DateFormat('dd-MM-yyyy').format(fecha);
+                            String formattedDate =
+                                DateFormat('dd-MM-yyyy').format(fecha);
                             pref.date_birth = formattedDate;
                             setState(() {});
                           }
@@ -599,35 +496,39 @@ class _PerfilPageState extends State<PerfilPage> {
                   Row(
                     children: [
                       Container(
-                        width: 100,
+                        width: 85,
                         child: Text(
-                          'Observacion:',
+                          'Observacion',
                           style: ThisColors.titulo(
-                              colorNegroClaro,
-                              15,
-                              FontWeight.bold),
+                              colorNegroClaro, 15, FontWeight.bold),
                         ),
                       ),
                       // Gap(20),
-                      Container(
-                        // color: Colors.red,
-                        width: 180,
-                        height: 150,
-                        child: Text(
-                          (pref.commentary.isNotEmpty)
-                              ? pref.commentary
-                              : 'Ingrese una observacion, maximo 200 letras.',
-                          // : 'PENDIENTE',
-                          // '10.10.1000 9pm',
-                          softWrap: true,
-                          style: ThisColors.titulo(
+                      Row(
+                        children: [
+                          Text(':'),
+                          Gap(10),
+                          Container(
+                            // color: Colors.red,
+                            width: 180,
+                            height: 150,
+                            child: Text(
                               (pref.commentary.isNotEmpty)
-                                  ? Color.fromARGB(255, 137, 109, 142)
-                                  : Color.fromARGB(255, 171, 171, 171),
-                              13,
-                              FontWeight.bold),
-                          maxLines: 10,
-                        ),
+                                  ? pref.commentary
+                                  : 'Ingrese una observacion, maximo 200 letras.',
+                              // : 'PENDIENTE',
+                              // '10.10.1000 9pm',
+                              softWrap: true,
+                              style: ThisColors.titulo(
+                                  (pref.commentary.isNotEmpty)
+                                      ? Color.fromARGB(255, 137, 109, 142)
+                                      : Color.fromARGB(255, 171, 171, 171),
+                                  13,
+                                  FontWeight.bold),
+                              maxLines: 10,
+                            ),
+                          ),
+                        ],
                       ),
                       Gap(10),
                       GestureDetector(
@@ -734,6 +635,122 @@ class _PerfilPageState extends State<PerfilPage> {
                   ),
                   Divider(),
                   Gap(15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Gap(20),
+                      GestureDetector(
+                        onTap: () async {
+                          var rpta = await showDialog(
+                            // barrierColor: ThisColors.primary,
+
+                            barrierDismissible: true,
+                            context: context,
+                            builder: (BuildContext context) {
+                              return SimpleDialog(
+                                backgroundColor: ThisColors.primary,
+                                title: Text(
+                                  '¿Desea actualizar los datos de su perfil?',
+                                  style: ThisColors.titulo(
+                                      Color.fromARGB(255, 255, 255, 255),
+                                      25,
+                                      FontWeight.w400),
+                                ),
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context, false);
+                                        },
+                                        child: Container(
+                                          width: 80,
+                                          height: 25,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            color: Color.fromARGB(
+                                                255, 217, 49, 49),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              'No',
+                                              style: ThisColors.titulo(
+                                                  ThisColors.white,
+                                                  15,
+                                                  FontWeight.w400),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context, true);
+                                        },
+                                        child: Container(
+                                          width: 80,
+                                          height: 25,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                            color: Color.fromARGB(
+                                                255, 66, 179, 49),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              'Si',
+                                              style: ThisColors.titulo(
+                                                  ThisColors.white,
+                                                  15,
+                                                  FontWeight.w400),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              );
+                            },
+                          );
+                          if (rpta) {
+                            // EasyLoading.show(
+                            //     status: 'Actualizando datos de perfil');
+                            await pref.updatePerfil();
+                            EasyLoading.dismiss();
+                          }
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right:20.0),
+                          child: Container(
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              color: ThisColors.primary.withOpacity(1),
+                              // shape: BoxShape.rectangle,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  'ACTUALIZAR',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                // Gap(3),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

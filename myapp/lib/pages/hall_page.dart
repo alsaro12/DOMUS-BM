@@ -48,7 +48,10 @@ class _HallPageState extends State<HallPage> {
           Container(
             width: double.infinity,
             height: double.infinity,
-            child: Image.asset('assets/hallPageBG.jpg', fit: BoxFit.cover),
+            child: Transform.scale(
+              scale: 1.4,
+              child: Image.asset('assets/bgLogin.jpg', fit: BoxFit.cover),
+            ),
           ),
           Column(
             children: [
@@ -56,8 +59,8 @@ class _HallPageState extends State<HallPage> {
               Container(
                 height: 160,
                 width: 160,
-                decoration: ThisColors.boxDecoration(
-                    15, Colors.white.withOpacity(0.7)),
+                decoration:
+                    ThisColors.boxDecoration(15, Colors.white.withOpacity(0.7)),
                 child: Image.asset('assets/img3.png', fit: BoxFit.cover),
               ),
               // SizedBox(
@@ -79,10 +82,12 @@ class _HallPageState extends State<HallPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 60.0),
                       child: Container(
                         child: Text(
-                          'Ponte cómodo y accede a toda la información que necesitas de tus propiedades, en un solo sitio. \n\n LA ADMINISTRACIÓN.',
-                          textAlign: TextAlign.left,
+                          'Ponte cómodo y accede a toda la información que necesitas de tus propiedades, en un solo sitio. ',
+                          textAlign: TextAlign.center,
                           style: ThisColors.subtitulo(
-                              Colors.white, 17, FontWeight.w300),
+                              Color.fromARGB(255, 41, 41, 41),
+                              14,
+                              FontWeight.w400),
                         ),
                       ),
                     ),
@@ -104,15 +109,21 @@ class _HallPageState extends State<HallPage> {
                           child: Container(
                             width: 180,
                             height: 50,
-                            decoration: ThisColors.boxDecoration(
-                                15, Colors.white.withOpacity(0.7)),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 2.0,
+                                color: ThisColors.primary,
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25.0)),
+                            ),
                             child: Center(
                               child: Text(
-                                'Iniciar',
+                                'INICIAR',
                                 style: ThisColors.subtitulo(
-                                    ThisColors.primary,
+                                    Color.fromARGB(255, 38, 37, 41),
                                     17,
-                                    FontWeight.w600),
+                                    FontWeight.w400),
                               ),
                             ),
                           ),

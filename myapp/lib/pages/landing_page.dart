@@ -30,7 +30,7 @@ class _LandingPageState extends State<LandingPage> {
               Container(
                 width: double.infinity,
                 height: double.infinity,
-                child: Image.asset('assets/hallPageBG.jpg', fit: BoxFit.cover),
+                child: Image.asset('assets/bgLogin.jpg', fit: BoxFit.cover),
               ),
               Container(
                 width: double.infinity,

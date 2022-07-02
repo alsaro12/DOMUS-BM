@@ -62,7 +62,7 @@ class _CameraAppState extends State<CameraApp> {
             children: [
               Container(
                 width: 350,
-                height: 500,
+                height: 550,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -70,11 +70,11 @@ class _CameraAppState extends State<CameraApp> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.playlist_add_check_circle_rounded,
-                          color: Colors.white,
-                          size: 20,
-                        ),
+                        // Icon(
+                        //   Icons.playlist_add_check_circle_rounded,
+                        //   color: Colors.white,
+                        //   size: 20,
+                        // ),
                         Text(
                           'Imagen seleccionada',
                           style: ThisColors.titulo(
@@ -94,17 +94,19 @@ class _CameraAppState extends State<CameraApp> {
                     Gap(20),
                     ListTile(
                       leading: Text(
-                        'Comentario',
-                        style: TextStyle(color: Colors.white),
+                        'Comentario:',
+                        style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                       ),
                       title: TextFormField(
+                        maxLines: 2,
                         controller: comentario,
                         style: TextStyle(
                           color: Colors.white,
                         ),
-                        decoration: InputDecoration(
-                          hintText: ('Comentario aquí'),
+                        decoration: const InputDecoration(
+                          hintText: ('Escribe tu comentario aqui'),
                           hintStyle: TextStyle(
+                            fontSize: 14,
                           color: Colors.white,
                         ),
                         ),
@@ -120,12 +122,13 @@ class _CameraAppState extends State<CameraApp> {
                               Navigator.pop(context);
                             },
                             child: Container(
-                              width: 150,
+                              width: 200,
                               height: 50,
                               decoration: BoxDecoration(
-                                color: Colors.grey.shade400,
+                                color: Color(0xffFFFFFF),
+                                // color: Color(0xff),
                                 border: Border.all(
-                                    width: 3.0, color: ThisColors.primary),
+                                    width: 3.0, color: Colors.transparent),
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(
                                     5.0,
@@ -134,9 +137,9 @@ class _CameraAppState extends State<CameraApp> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Volver a tomar foto',
+                                  'VOLVER A TOMAR LA FOTO',
                                   style: ThisColors.titulo(
-                                      ThisColors.white, 14, FontWeight.bold),
+                                      Color(0xff000000), 13, FontWeight.bold),
                                 ),
                               ),
                             ),
@@ -167,7 +170,7 @@ class _CameraAppState extends State<CameraApp> {
                               }
                             },
                             child: Container(
-                              width: 150,
+                              width: 200,
                               height: 50,
                               decoration: BoxDecoration(
                                 color: ThisColors.turquesa,
@@ -182,7 +185,7 @@ class _CameraAppState extends State<CameraApp> {
                               ),
                               child: Center(
                                 child: Text(
-                                  'Usar foto',
+                                  'USAR FOTO TOMADA',
                                   style: ThisColors.titulo(
                                       ThisColors.white, 14, FontWeight.bold),
                                 ),
